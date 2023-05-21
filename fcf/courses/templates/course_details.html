@@ -1,0 +1,462 @@
+{%extends 'base1.html' %}
+  
+{% block content %}
+{% load custom_filter %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 20%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 80%;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: 2rem;
+  }
+}
+ 
+
+/*Side css*/
+.container-side{
+  width: 100%;
+  margin: 2rem auto;
+}
+.card-side{
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.28);
+}
+.card-image-side{
+  height: 10rem;
+  overflow: hidden;
+}
+.img-side{
+  width: 70%;
+  height: 80%;
+  margin-top: 3rem;
+  object-fit: contain;
+  display: block;
+  
+}
+.card-content-side{
+  padding: 2rem;
+}
+.course-details{
+  display: flex;
+  align-items: center;
+}
+.icon-text-side{
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+.icon-side{
+  color: #5d4037;
+  margin-right: 0.4rem;
+}
+.icon-main{
+    margin-right: 0.5rem;
+}
+.course-cta{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.button-side{
+  padding: 0.2rem 0.5rem;
+  display: inline-block;
+  background-color: #5d4037;
+  border-radius: 0.6rem;
+  color: #fff;
+  text-decoration: none;
+}
+.btn-side{
+    margin: 0 auto;
+}
+.btn-side:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+@media screen and (min-width: 600px){
+  .card-side{
+    display: flex;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    height: 25rem;
+    overflow: hidden;
+  }
+  .card-image-side{
+    height: auto;
+    flex: 1;
+  }
+  .card-content-side{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .btn-side{
+    margin-left: 0.1rem;
+  }
+}
+@media screen and (min-width: 600px){
+  .name{
+    display: -webkit-box; 
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical; 
+     overflow: hidden;
+  }
+}
+@media screen and (min-width: 1000px){
+  .name{
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+     overflow: hidden;
+  }
+}
+@media screen and (min-width: 1500px){
+  .name{
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+     overflow: hidden;
+  }
+}
+@media screen and (min-width: 1300px){
+  .name{
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+     overflow: hidden;
+  }
+}
+@media screen and (min-width: 1600px){
+  .name{
+    display: -webkit-box; 
+    -webkit-line-clamp: 1; 
+    -webkit-box-orient: vertical; 
+     overflow: hidden;
+  }
+}
+    </style>
+  </head>
+<body>
+
+
+<div class="overlay" data-overlay></div>
+<!--
+    - MODAL
+  -->
+
+  <div class="modal" data-modal>
+
+    <div class="modal-close-overlay" data-modal-overlay></div>
+
+    <div class="modal-content">
+
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="newsletter-img">
+        <img src="./assets/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
+      </div>
+
+      <div class="newsletter">
+
+        <form action="#">
+
+          <div class="newsletter-header">
+
+            <h3 class="newsletter-title">Subscribe Newsletter.</h3>
+
+            <p class="newsletter-desc">
+              Subscribe the <b>FreeCoursesFinder</b> to get latest courses for free.
+            </p>
+
+          </div>
+
+          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
+
+          <button type="submit" class="btn-newsletter">Subscribe</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!--
+    - NOTIFICATION TOAST
+  -->
+
+  <div class="notification-toast" data-toast>
+
+    <button class="toast-close-btn" data-toast-close>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <div class="toast-banner">
+      <img src="./assets/images/products/jewellery-1.jpg" alt="Rose Gold Earrings" width="80" height="70">
+    </div>
+
+    <div class="toast-detail">
+
+      <p class="toast-message">
+        Someone in new just enroll
+      </p>
+
+      <p class="toast-title">
+        python course
+      </p>
+
+      <p class="toast-meta">
+        <time datetime="PT2M">2 Minutes</time> ago
+      </p>
+
+    </div>
+
+  </div>
+  </header>
+  <div id="content">
+
+  <!--Heading information-->
+  
+  <div class="container-side">
+    <div class="card-side">
+      <div class="card-image-side">
+        <img class="img-side" src="{{course_details.img}}" alt="">
+      </div>
+      <div class="card-content-side">
+        <div class="course-details">  
+        </div>
+
+        <h2 class="course-title-side">{{course_details.title}}</h2>
+        <br>
+
+        {% if course_details.provider and course_details.provider.id != 13 %}
+        <div class="icon-text-side">
+            <iconify-icon class="icon-main" icon="gg:website"></iconify-icon>
+            <span class="text-side">{{course_details.provider}}</span>
+          </div>
+          <br>
+        {% endif %}
+
+        
+        {% if course_details.institution and course_details.institution.id != 13 %}
+            <div class="icon-text-side">
+                <iconify-icon class="icon-main" icon="mdi:company"></iconify-icon>
+                <span class="text-side">{{course_details.institution}}</span>
+              </div>
+              <br>
+        {% endif %}
+        
+        {% if course_details.certificate %}
+        <div class="icon-text-side">
+            <iconify-icon class="icon-main" icon="fluent:certificate-20-filled"></iconify-icon>
+            <span class="text-side">{{course_details.certificate}}</span>
+          </div>
+          <br>
+        {% endif %}
+          
+        {% if course_details.language %}
+        <div class="icon-text-side">
+            <iconify-icon class="icon-main" icon="ic:baseline-language"></iconify-icon>
+            <span class="text-side">{{course_details.language}}</span>
+          </div>
+          <br>
+        {% endif %}
+          
+        {% if course_details.time %}
+        <div class="icon-text-side">
+            <iconify-icon class="icon-main" icon="ic:round-access-time"></iconify-icon>
+            <span class="text-side">{{course_details.time}}</span>
+          </div>
+          <br>
+        {% endif %}
+          
+          {% if course_details.rating %}
+          <div class="icon-text-side">
+              <iconify-icon class="icon-main" icon="material-symbols:star-rate"></iconify-icon>
+              <span class="text-side">{{course_details.rating}}</span>
+            </div>
+            <br>
+          {% endif %}
+            
+          {% if course_details.sub_title %}
+            <div class="icon-text-side">
+                <iconify-icon class="icon-main" icon="fluent:subtitles-24-regular"></iconify-icon>
+                <span class="text-side">{{course_details.sub_title}}</span>
+              </div>
+          {% endif %}
+
+              <br>
+              <a target="_blank" href="{{course_details.url}}">
+                <button class="btn-side" onMouseOver="this.style.color='#5d4037'"
+                onMouseOut="this.style.color='#0077ff'" style="border: none;
+                padding: 12px 24px;
+                border-radius: 50px;
+                
+                display: block;
+                font-weight: 600;
+                color: #0077ff;
+                background-color: #e0efff;
+                cursor: pointer;
+                box-shadow: 0 3px #999;">Go to course</button>
+                <br></a>         
+
+      </div>
+
+    </div>
+  </div>
+  
+    <div class="container">
+       {% if course_details.description %}
+        <h2 class="overview" style="margin-top:2rem; margin-left: 1rem;">Overview</h2>
+        <p style="margin-top: 1rem; margin-left: 1rem; margin-right: 1rem; margin-bottom: 2rem;">{{course_details.description}}</p>
+        {% endif %}
+
+        {% if course_details.author %}
+        <h3 class="overview" style="margin-top:2rem; margin-left: 1rem;">Instructor</h3>
+        <p style="margin-top: 1rem; margin-left: 1rem; margin-right: 1rem; margin-bottom: 0.2rem;">{{course_details.author}}</p>
+        {% endif %}
+
+        <h3 class="overview" style="margin-top:2rem; margin-left: 1rem;">Found in</h3>
+        {% if course_details.main_subject.id != 14 %}
+        <p style="margin-top: 1rem; margin-left: 1rem; margin-right: 1rem; margin-bottom: 0.2rem;">{{course_details.main_subject}}</p>
+        {% endif %}
+
+        {% if course_details.sub_subject.id != 23 %}
+        <a href="/?subject={{course_details.sub_subject.id}}"><p style="margin-top: 0.1rem; margin-left: 1rem; margin-right: 1rem; margin-bottom: 2rem;">{{course_details.sub_subject}}</p></a>
+        {% endif %}
+    </div>
+
+
+    
+    <h3 class="overview" style="margin-top:2rem; margin-left: 1rem; margin-bottom: 1rem;">Related Courses:</h3>
+
+    <!--Course cards-->
+  <div class="row">
+    {% for course in related_data %}
+    {% if forloop.counter >= 6 %}
+       
+    {% elif course_details.id == course.id%}
+    
+    {% else %}
+
+    <div class="column">
+      <div class="card" style="background-color: white;
+    border: 1px solid #bacdd8;
+    border-radius: 12px;
+    display: grid;">
+
+      <img style="width: 100%;
+      border-radius: 12px;
+      height: 214px;
+      object-fit: fill;" src="{{course.img}}" alt="Lago di Braies">
+
+      <!-- A div with card__details class to hold the details in the card  -->
+      <div class="card__details" style="padding: 16px 8px 8px 8px;">
+
+        <!-- Span with tag class for the tag -->
+        <span class="tag" style="padding: 4px 8px;
+        border: 1px solid #e5eaed; 
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #788697;">{{course.rating}}</span>
+
+        <span class="tag" style="padding: 4px 8px;
+        border: 1px solid #e5eaed;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #788697;">{{course.provider}}</span>
+
+        <!-- A div with name class for the name of the card -->
+        <div class="name" style="font-size: 24px;
+        font-weight: 600;
+        margin-top: 16px;
+        ">{{course.title}}</div>
+
+        <p style="font-size: 14px;
+        color: #7f8c9b;
+        line-height: 150%;display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">{{course.description}}</p>
+        <br>
+        
+        <a href="?course={{course.id}}">
+        <button onMouseOver="this.style.color='#5d4037'"
+        onMouseOut="this.style.color='#0077ff'" style="border: none;
+        padding: 12px 24px;
+        border-radius: 50px;
+        margin: 0 auto;
+        display: block;
+        font-weight: 600;
+        color: #0077ff;
+        background-color: #e0efff;
+        cursor: pointer;">Read more</button>
+        <br></a>
+        
+      </div>
+
+
+    </div>
+    </div>
+    
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+</body>
+</html>
+{% endblock %}
+  

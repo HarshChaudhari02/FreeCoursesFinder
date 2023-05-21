@@ -1,0 +1,120 @@
+{%extends 'base1.html' %}
+  
+{% block content %}
+{% load custom_filter %}
+{% load static %}
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* center the form on the page */
+.container-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* style the form elements */
+.form-c {
+  width: 50%;
+  padding: 2em;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #ccc;
+}
+
+/* style the labels */
+label {
+  font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+/* style the form inputs */
+input, textarea {
+  width: 100%;
+  padding: 0.3em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* style the submit button */
+button[type="submit"] {
+  width: 100%;
+  padding: 0.4em;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+/* change the button color on hover */
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+@media screen and (max-width: 600px){
+    .form-c {
+  width: 80%;
+  padding: 2em;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #ccc;
+}
+}
+        
+    </style>
+  </head>
+  <body>
+      <div id="content">
+      <div class="container-c">
+        
+        <form class="form-c" method="post" action="/contact">
+            {% csrf_token %}
+
+            {% if error %}
+                <div class="alert alert-danger" role="alert" style="color: red;">
+                    {{error}}                
+                </div>
+                <br>
+            {% endif %}
+
+          <div class="form-group-c">
+            <label for="name-c">Name:</label>
+            <input type="text" class="form-control-c" id="name" name="name" value="{{values.name}}">
+          </div>
+          <div class="form-group-c">
+            <label for="email-c">Email:</label>
+            <input type="email" class="form-control-c" id="email" name="email" value="{{values.email}}">
+          </div>
+          <div class="form-group-c">
+            <label for="name-c">Phone:</label>
+            <input type="text" class="form-control-c" id="phone" name="phone" value="{{values.phone}}">
+          </div>
+          <div class="form-group-c">
+            <label for="message-c">Message:</label>
+            <textarea class="form-control-c" id="message" name="message" rows="5" value="{{values.content}}"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary-c">Submit</button>
+        </form>
+      </div>
+
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+    
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,507 @@
+{% load static %}
+{% load dicti %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreeCoursesFinder</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="{% static 'images/logo2.png' %}" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'ionicons/css/ionicons.css' %}">
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+  
+    .menu-category:hover {
+          
+          transform: translateY(-3px);
+          
+      }
+      
+  </style>
+  
+ 
+</head>
+
+  <body>
+
+    <header>
+
+      <div class="header-top">
+
+        <div class="container">
+
+          <ul class="header-social-container">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+          <div class="header-alert-news">
+            <p>
+              <b>All in one</b>
+              - find all courses on one platform
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="header-main">
+
+        <div class="container">
+
+          <a href="/" class="header-logo">
+            <!--<img src="{% static 'images/logo/logo.svg' %}" alt="Anon's logo" width="120" height="36">-->
+            <h2>FreeCoursesFinder</h2>
+          </a>
+
+          
+          <form class="header-search-container">
+            
+            <div class="header-search-container">
+              <input type="hidden" id="csrf_token" value="{{ csrf_token }}">
+              
+              <input id="query" type="search" name="query" class="search-field" placeholder="Start the learning journey now...">
+  
+              <button class="search-btn" id="submit-button">
+                <ion-icon name="search-outline"></ion-icon>
+              </button>
+  
+            </div>
+          </form>
+
+         
+          </div>
+
+        </div>
+
+      </div>
+
+<!--
+    - Desktop Navigation
+-->
+      <nav class="desktop-navigation-menu">
+
+        <div class="container">
+
+          <ul class="desktop-menu-category-list">
+
+            <li class="menu-category">
+              <a href="/" class="menu-title">Home</a>
+            </li>
+
+            <li class="menu-category">
+              <a href="/?uni=1" class="menu-title">Universities</a>
+            </li>
+
+            <li class="menu-category">
+              <a href="/?insti=1" class="menu-title">Institutes</a>
+
+            </li>
+
+            <li class="menu-category">
+              <a href="/?prov=1" class="menu-title">Providers</a>
+     
+            </li>
+
+            <li class="menu-category">
+              <a href="/?sub=1" class="menu-title">Subjects</a>
+
+            </li>
+
+            <li class="menu-category">
+              <a href="/contact" class="menu-title">Contact Us</a>
+            </li>
+
+
+            <li class="menu-category">
+              <a href="/about_us" class="menu-title">About Us</a>
+            </li>
+            
+          </ul>
+
+        </div>
+
+      </nav>
+
+<!--
+    - Mobile Bottom Navigation
+-->
+
+    <div class="mobile-bottom-navigation">
+
+      <button class="action-btn" data-mobile-menu-open-btn>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+     
+      <a href="/">
+      <button class="action-btn">
+        <ion-icon name="home-outline"></ion-icon>
+      </button></a>
+
+
+    </div>
+
+    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
+
+      <div class="menu-top">
+        <h2 class="menu-title">Menu</h2>
+
+        <button class="menu-close-btn" data-mobile-menu-close-btn>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="mobile-menu-category-list">
+
+        <li class="menu-category">
+          <a href="/" class="menu-title">Home</a>
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <a href="/?uni=1"><p class="menu-title">Universities</p></a>
+          </button>
+
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <a href="/?insti=1"><p class="menu-title">Institutes</p></a>
+
+          </button>
+
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <a href="/?prov=1"><p class="menu-title">Providers</p></a>
+          </button>
+
+        </li>
+
+        <li class="menu-category">
+
+          <button class="accordion-menu" data-accordion-btn>
+            <a href="/?sub=1"><p class="menu-title">Subjects</p></a>
+          </button>
+
+        </li>
+
+        <li class="menu-category">
+          <a href="/contact" class="menu-title">Contact Us</a>
+        </li>
+
+        <li class="menu-category">
+          <a href="/about_us" class="menu-title">About Us</a>
+        </li>
+
+      </ul>
+
+      <div class="menu-bottom">
+
+          <ul class="menu-social-container">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+    </header>
+
+
+
+    {% block content %}{% endblock%}
+
+
+
+
+  <!--
+    - FOOTER
+  -->
+
+  <footer>
+
+
+    <div class="footer-nav">
+
+      <div class="container">
+
+        
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Browse by Subject</h2>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?subject=5" class="footer-nav-link">Artificial Intelligence</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?subject=22" class="footer-nav-link">Web Development</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?subject=61" class="footer-nav-link">Python Programming</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?subject=56" class="footer-nav-link">Java Programming</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="?sub=1" class="footer-nav-link">Show all</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Browse by Institution</h2>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?institute=6" class="footer-nav-link">Google</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?institute=5" class="footer-nav-link">Microsoft</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?institute=3" class="footer-nav-link">Amazon</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?institute=9" class="footer-nav-link">Meta</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="?insti=1" class="footer-nav-link">Show all</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Browse by Provider</h2>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?provider=4" class="footer-nav-link">Coursera</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?provider=3" class="footer-nav-link">Udemy</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?provider=7" class="footer-nav-link">edX</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?provider=17" class="footer-nav-link">Swayam</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="?prov=1" class="footer-nav-link">Show all</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Browse by Universities</h2>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?university=3" class="footer-nav-link">Harvard University</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?university=4" class="footer-nav-link">Stanford University</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?university=6" class="footer-nav-link">MIT</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="/?university=5" class="footer-nav-link">IIT, Kharagpur</a>
+          </li>
+
+          <li class="footer-nav-item">
+            <a href="?uni=1" class="footer-nav-link">Show all</a>
+          </li>
+
+        </ul>
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Contact</h2>
+          </li>
+
+          <li class="footer-nav-item flex">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <address class="content">
+              Wagholi,Pune
+            </address>
+          </li>
+
+          <li class="footer-nav-item flex">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <a href="mailto:example@gmail.com" class="footer-nav-link">example@gmail.com</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-nav-list">
+
+          <li class="footer-nav-item">
+            <h2 class="nav-title">Follow Us</h2>
+          </li>
+
+          <li>
+            <ul class="social-link">
+
+              <li class="footer-nav-item">
+                <a href="#" class="footer-nav-link">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+              </li>
+
+              <li class="footer-nav-item">
+                <a href="#" class="footer-nav-link">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </li>
+
+              <li class="footer-nav-item">
+                <a href="#" class="footer-nav-link">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+
+              <li class="footer-nav-item">
+                <a href="#" class="footer-nav-link">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <div class="container">
+
+        <p class="copyright">
+          Copyright &copy; <a href="/">FreeCoursesFinder</a> all rights reserved.
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

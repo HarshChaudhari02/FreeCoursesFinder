@@ -1,0 +1,1205 @@
+
+{%extends 'base.html' %}
+  
+{% block content %}
+{% load custom_filter %}
+{% load static %}
+<html>
+  <head>
+    <style>
+      .showcase:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+    .showcase:active {
+  transform: translateY(4px);
+}
+
+.category-item:hover {
+        background-color: #f0f0f0;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+    .category-item:active {
+  transform: translateY(4px);
+}
+
+.product-name:hover {
+        
+        transform: translateY(-3px);
+       
+    }
+    .product-name:active {
+  transform: translateY(4px);
+}
+
+    </style>
+  </head>
+<body>
+  <div class="overlay" data-overlay></div>
+
+  <!--
+    - MODAL
+  -->
+
+  <div class="modal" data-modal>
+
+    <div class="modal-close-overlay" data-modal-overlay></div>
+
+    <div class="modal-content">
+
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="newsletter-img">
+        <img src="./assets/images/newsletter.png" alt="subscribe newsletter" width="400" height="400">
+      </div>
+
+      <div class="newsletter">
+
+        <form action="#">
+
+          <div class="newsletter-header">
+
+            <h3 class="newsletter-title">Subscribe Newsletter.</h3>
+
+            <p class="newsletter-desc">
+              Subscribe the <b>FreeCoursesFinder</b> to get latest courses for free.
+            </p>
+
+          </div>
+
+          <input type="email" name="email" class="email-field" placeholder="Email Address" required>
+
+          <button type="submit" class="btn-newsletter">Subscribe</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!--
+    - NOTIFICATION TOAST
+  -->
+
+  <div class="notification-toast" data-toast>
+
+    <button class="toast-close-btn" data-toast-close>
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+
+    <div class="toast-banner">
+      <img src="./assets/images/products/jewellery-1.jpg" alt="Rose Gold Earrings" width="80" height="70">
+    </div>
+
+    <div class="toast-detail">
+
+      <p class="toast-message">
+        Someone in new just enroll
+      </p>
+
+      <p class="toast-title">
+        python course
+      </p>
+
+      <p class="toast-meta">
+        <time datetime="PT2M">2 Minutes</time> ago
+      </p>
+
+    </div>
+
+  </div>
+  </header>
+
+
+  <!--
+    - MAIN
+  -->
+  <div id="content">
+  <main>
+
+    <!--
+      - BANNER
+    -->
+
+    <div class="banner">
+
+      <div class="container">
+
+        <div class="slider-container has-scrollbar">
+
+          <div class="slider-item">
+
+            <img src="https://i.postimg.cc/Kj7zCxJG/happy-elearning.gif" alt="women's latest fashion sale" class="banner-img">
+            <!--
+            <div class="banner-content">
+
+              <p class="banner-subtitle">Trending item</p>
+
+              <h2 class="banner-title">Women's latest fashion sale</h2>
+
+              <p class="banner-text">
+                starting at &dollar; <b>20</b>.00
+              </p>
+
+              <a href="#" class="banner-btn">Shop now</a>
+
+            </div>
+              -->
+          </div>
+
+          <div class="slider-item">
+
+            <img src="https://i.postimg.cc/kXDzjf4Z/e-learning-course.jpg" alt="modern sunglasses" class="banner-img">
+            <!--
+            <div class="banner-content">
+
+              <p class="banner-subtitle">Trending accessories</p>
+
+              <h2 class="banner-title">Modern sunglasses</h2>
+
+              <p class="banner-text">
+                starting at &dollar; <b>15</b>.00
+              </p>
+
+              <a href="#" class="banner-btn">Shop now</a>
+
+            </div>
+          -->
+          </div>
+          <!--
+          <div class="slider-item">
+
+            <img src="./assets/images/banner-3.jpg" alt="new fashion summer sale" class="banner-img">
+
+            <div class="banner-content">
+
+              <p class="banner-subtitle">Sale Offer</p>
+
+              <h2 class="banner-title">New fashion summer sale</h2>
+
+              <p class="banner-text">
+                starting at &dollar; <b>29</b>.99
+              </p>
+
+              <a href="#" class="banner-btn">Shop now</a>
+
+            </div>
+
+          </div>
+          -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!--
+      - CATEGORY
+    -->
+
+    <div class="category">
+
+      <div class="container">
+
+        <div class="category-item-container has-scrollbar">
+          <a href="/?provider=3">
+          <div class="category-item">
+            
+
+            <div class="category-img-box">
+              <img src="https://i.postimg.cc/156pF9Tf/Udemy-Logo.png" alt="dress & frock" width="30">
+            </div>
+
+            <div class="category-content-box">
+
+              <div class="category-content-flex">
+                <h3 class="category-item-title">Udemy</h3>
+              </div>
+
+              <a href="/?provider=3" class="category-btn">Show all</a>
+
+            </div>
+          
+          </div>
+          </a>
+
+          <a href="/?provider=4">
+          <div class="category-item">
+
+            <div class="category-img-box">
+              <img src="https://i.postimg.cc/1XFNDHvL/Coursera-Logo.png" alt="winter wear" width="30">
+            </div>
+
+            <div class="category-content-box">
+
+              <div class="category-content-flex">
+                <h3 class="category-item-title">Coursera</h3>
+              </div>
+
+              <a href="/?provider=4" class="category-btn">Show all</a>
+
+            </div>
+
+          </div>
+          </a>
+
+          <a href="/?provider=5">
+          <div class="category-item">
+
+            <div class="category-img-box">
+              <img src="https://i.postimg.cc/L6sc4b0C/Linked-In-Learning-Logo-png-width-2500-height-341-name-Linked-In-Learning-Logo.png" alt="glasses & lens" width="30">
+            </div>
+
+            <div class="category-content-box">
+
+              <div class="category-content-flex">
+                <h3 class="category-item-title">LinkedIn Learning</h3>
+
+              </div>
+
+              <a href="/?provider=5" class="category-btn">Show all</a>
+
+            </div>
+
+          </div>
+          </a>
+
+          <a href="/?provider=6">
+
+          <div class="category-item">
+
+            <div class="category-img-box">
+              <img src="https://i.postimg.cc/cLh7wXrG/skillshare.png" alt="shorts & jeans" width="30">
+            </div>
+
+            <div class="category-content-box">
+
+              <div class="category-content-flex">
+                <h3 class="category-item-title">SkillShare</h3>
+
+              </div>
+
+              <a href="/?provider=6" class="category-btn">Show all</a>
+
+            </div>
+
+          </div>
+          </a>
+
+          <a href="/?provider=7">
+          <div class="category-item">
+
+            <div class="category-img-box">
+              <img src="https://i.postimg.cc/pLBN8bfV/edx-6019064f74ec5-o.png" alt="t-shirts" width="30">
+            </div>
+
+            <div class="category-content-box">
+
+              <div class="category-content-flex">
+                <h3 class="category-item-title">edX</h3>
+
+              </div>
+
+              <a href="/?provider=7" class="category-btn">Show all</a>
+
+            </div>
+
+          </div>
+          </a>
+
+          <a href="/?provider=8">
+
+          <div class="category-item">
+
+            <div class="category-img-box">
+              <img src="https://i.postimg.cc/K8Tjyzhq/951af173-d392-45ec-b5e7-548687b8c070.webp" alt="jacket" width="30">
+            </div>
+
+            <div class="category-content-box">
+
+              <div class="category-content-flex">
+                <h3 class="category-item-title">FutureLearn</h3>
+
+              </div>
+
+              <a href="/?provider=8" class="category-btn">Show all</a>
+
+            </div>
+
+          </div>
+          </a>
+
+          <a href="/?provider=9">
+
+          <div class="category-item">
+
+            <div class="category-img-box">
+              <img src="https://i.postimg.cc/1RgfKMY1/image.png" alt="watch" width="30">
+            </div>
+
+            <div class="category-content-box">
+
+              <div class="category-content-flex">
+                <h3 class="category-item-title">freeCodeCamp</h3>
+
+              </div>
+
+              <a href="/?provider=9" class="category-btn">Show all</a>
+
+            </div>
+
+          </div>
+        </a>
+
+        <a href="/?provider=10">
+          <div class="category-item">
+
+            <div class="category-img-box">
+              <img src="https://i.postimg.cc/FKR9HsMX/fb-optimized.jpg" alt="hat & caps" width="30">
+            </div>
+
+            <div class="category-content-box">
+
+              <div class="category-content-flex">
+                <h3 class="category-item-title">DataCamp</h3>
+
+              </div>
+
+              <a href="/?provider=10" class="category-btn">Show all</a>
+
+            </div>
+
+          </div>
+        </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!--
+      - PRODUCT
+    -->
+
+    <div class="product-container">
+
+      <div class="container">
+
+
+        <!--
+          - SIDEBAR
+        -->
+
+        <div class="sidebar  has-scrollbar" data-mobile-menu>
+
+          <div class="sidebar-category">
+
+            <div class="sidebar-top">
+              <h2 class="sidebar-title">Subjects</h2>
+
+              <button class="sidebar-close-btn" data-mobile-menu-close-btn>
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+
+            <ul class="sidebar-menu-category-list">
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    
+                    <p class="menu-title">Computer Science</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  {% for sub in subjects %}
+                  {% if sub.main_subject.id == 4 %}
+                  <li class="sidebar-submenu-category">
+                    <a href="/?subject={{sub.id}}" class="sidebar-submenu-title">
+                      <p class="product-name">{{sub.name}}</p>
+                    </a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+              
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    
+                    <p class="menu-title">Engineering</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+                  
+                  {% for sub in subjects %}
+                  {% if sub.main_subject.id == 8 %}
+                  <li class="sidebar-submenu-category">
+                    <a href="/?subject={{sub.id}}" class="sidebar-submenu-title">
+                      <p class="product-name">{{sub.name}}</p>
+                    </a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                   
+                    <p class="menu-title">Data Science</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  {% for sub in subjects %}
+                  {% if sub.main_subject.id == 10 %}
+                  <li class="sidebar-submenu-category">
+                    <a href="/?subject={{sub.id}}" class="sidebar-submenu-title">
+                      <p class="product-name">{{sub.name}}</p>
+                    </a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                    
+                    <p class="menu-title">Mathematics</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  {% for sub in subjects %}
+                  {% if sub.main_subject.id == 5 %}
+                  <li class="sidebar-submenu-category">
+                    <a href="/?subject={{sub.id}}" class="sidebar-submenu-title">
+                      <p class="product-name">{{sub.name}}</p>
+                    </a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                   
+                    <p class="menu-title">Programming</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  {% for sub in subjects %}
+                  {% if sub.main_subject.id == 11 %}
+                  <li class="sidebar-submenu-category">
+                    <a href="/?subject={{sub.id}}" class="sidebar-submenu-title">
+                      <p class="product-name">{{sub.name}}</p>
+                    </a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                   
+                    <p class="menu-title">Business</p>
+                  </div>
+
+                  <div>
+                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                    <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+                  </div>
+
+                </button>
+
+                <ul class="sidebar-submenu-category-list" data-accordion>
+
+                  {% for sub in subjects %}
+                  {% if sub.main_subject.id == 6 %}
+                  <li class="sidebar-submenu-category">
+                    <a href="/?subject={{sub.id}}" class="sidebar-submenu-title">
+                      <p class="product-name">{{sub.name}}</p>
+                    </a>
+                  </li>
+                  {% endif %}
+                  {% endfor %}
+
+                </ul>
+
+              </li>
+
+              <li class="sidebar-menu-category">
+
+                <button class="sidebar-accordion-menu" data-accordion-btn>
+
+                  <div class="menu-title-flex">
+                   
+
+                    <a href="/?sub=1"><p class="menu-title">Show all</p></a>
+                  </div>
+
+                </button>
+
+              </li>
+
+            </ul>
+
+          </div>
+
+
+
+          
+
+
+
+          <div class="product-showcase">
+
+            <h3 class="showcase-heading">Best Courses</h3>
+
+            <div class="showcase-wrapper">
+
+              <div class="showcase-container">
+
+                <div class="showcase">
+
+                  <a target="_blank" href="https://www.coursera.org/learn/gcp-fundamentals?irclickid=zJY2%3AC0cpxyNTji0F%3ATQs1tkUkA1ng2JOQy1WM0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=259799&utm_content=b2c" class="showcase-img-box">
+                    <img src="https://i.postimg.cc/1XMjqJkk/c4d43f73fc41-w480.webp" alt="baby fabric shoes" width="75" height="75"
+                      class="showcase-img">
+                  </a>
+
+                  <div class="showcase-content">
+
+                    <a target="_blank" href="https://www.coursera.org/learn/gcp-fundamentals?irclickid=zJY2%3AC0cpxyNTji0F%3ATQs1tkUkA1ng2JOQy1WM0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=259799&utm_content=b2c">
+                      <h4 class="showcase-title">Google Cloud Fundamentals: Core Infrastructure</h4>
+                    </a>
+
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="showcase">
+
+                  <a target="_blank" href="https://www.udemy.com/course/pythonforbeginnersintro" class="showcase-img-box">
+                    <img src="https://i.postimg.cc/Xq4SpfV8/1200px-Python-svg.png" alt="men's hoodies t-shirt" class="showcase-img"
+                      width="75" height="75">
+                  </a>
+
+                  <div class="showcase-content">
+
+                    <a target="_blank" href="https://www.udemy.com/course/pythonforbeginnersintro">
+                      <h4 class="showcase-title">Introduction To Python Programming</h4>
+                    </a>
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-half-outline"></ion-icon>
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+                <div class="showcase">
+
+                  <a target="_blank" href="https://www.udemy.com/course/ethical-hacker/?ranMID=39197&ranEAID=SAyYsTvLiGQ&ranSiteID=SAyYsTvLiGQ-y_aylAOwlQCjLIkfbwV0YA&LSNPUBID=SAyYsTvLiGQ&utm_source=aff-campaign&utm_medium=udemyads" class="showcase-img-box">
+                    <img src="https://i.postimg.cc/MGFM1YXz/kali-blue-header.jpg" alt="girls t-shirt" class="showcase-img" width="75"
+                      height="75">
+                  </a>
+
+                  <div class="showcase-content">
+
+                    <a target="_blank" href="https://www.udemy.com/course/ethical-hacker/?ranMID=39197&ranEAID=SAyYsTvLiGQ&ranSiteID=SAyYsTvLiGQ-y_aylAOwlQCjLIkfbwV0YA&LSNPUBID=SAyYsTvLiGQ&utm_source=aff-campaign&utm_medium=udemyads">
+                      <h4 class="showcase-title">Start Kali Linux, Ethical Hacking and Penetration Testing!</h4>
+                    </a>
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-half-outline"></ion-icon>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="showcase">
+
+                  <a target="_blank" href="https://www.coursera.org/learn/introduction-git-github?irclickid=zDP3JhRQwxyNRbf0nlXomV2yUkAwpvyhOQ36xc0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=259799&utm_content=b2c" class="showcase-img-box">
+                    <img src="https://i.postimg.cc/rsk4fXtq/github-cover.jpg" alt="woolen hat for men" class="showcase-img" width="75"
+                      height="75">
+                  </a>
+
+                  <div class="showcase-content">
+
+                    <a target="_blank" href="https://www.coursera.org/learn/introduction-git-github?irclickid=zDP3JhRQwxyNRbf0nlXomV2yUkAwpvyhOQ36xc0&irgwc=1&utm_medium=partners&utm_source=impact&utm_campaign=259799&utm_content=b2c">
+                      <h4 class="showcase-title">Introduction to Git and GitHub</h4>
+                    </a>
+                    <div class="showcase-rating">
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="product-box">
+
+          <!--
+            - PRODUCT MINIMAL
+          -->
+
+          <div class="product-minimal">
+
+            <div class="product-showcase">
+
+              <h2 class="title">Institutes</h2>
+
+              <div class="showcase-wrapper has-scrollbar">
+
+                <div class="showcase-container">
+
+                  <div class="showcase">
+                      
+                    <a href="/?institute=6" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/WpgSP6nD/Google-logo.png" alt="relaxed short full sleeve t-shirt" width="70" class="showcase-img">
+                    </a>
+
+                    <div class="showcase-content">
+
+                      <a href="/?institute=6">
+                        <h4 class="showcase-title">Google</h4>
+                      </a>
+
+                    </div>
+
+                  </div>
+
+                  <div class="showcase">
+                  
+                    <a href="/?institute=7" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/CLwCpy5t/ibm-7.png" alt="girls pink embro design top" class="showcase-img" width="70">
+                    </a>
+                  
+                    <div class="showcase-content">
+                  
+                      <a href="/?institute=7">
+                        <h4 class="showcase-title">IBM</h4>
+                      </a>
+                  
+                    </div>
+                  
+                  </div>
+
+                  <div class="showcase">
+                  
+                    <a href="/?institute=9" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/ZnwWhMDt/Meta-Logo.png" alt="black floral wrap midi skirt" class="showcase-img"
+                        width="70">
+                    </a>
+                  
+                    <div class="showcase-content">
+                  
+                      <a href="/?institute=9">
+                        <h4 class="showcase-title">Meta</h4>
+                      </a>
+                
+                    </div>
+                  
+                  </div>
+
+                  <div class="showcase">
+                  
+                    <a href="/?institute=3" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/XqJPsrRK/amazon-logo-0.png" alt="pure garment dyed cotton shirt" class="showcase-img"
+                        width="70">
+                    </a>
+                  
+                    <div class="showcase-content">
+                  
+                      <a href="/?institute=3">
+                        <h4 class="showcase-title">Amazon</h4>
+                      </a>
+                  
+                    </div>
+                  
+                  </div>
+
+                  <div class="showcase">
+                  
+                    <a href="/?institute=14" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/B6M2kx67/Salesforce-emblem-1170x780.jpg" alt="black floral wrap midi skirt" class="showcase-img"
+                        width="70">
+                    </a>
+                  
+                    <div class="showcase-content">
+                  
+                      <a href="/?institute=14">
+                        <h4 class="showcase-title">Salesforce</h4>
+                      </a>
+                
+                    </div>
+                  
+                  </div>
+
+                  <div class="showcase">
+                  
+                    <a href="/?institute=8" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/63N2VRGS/AICTE-Logo-250x250-1.png" alt="black floral wrap midi skirt" class="showcase-img"
+                        width="70">
+                    </a>
+                  
+                    <div class="showcase-content">
+                  
+                      <a href="/?institute=8">
+                        <h4 class="showcase-title">AICTE</h4>
+                      </a>
+                
+                    </div>
+                  
+                  </div>
+
+                  <div class="showcase">
+                  
+                    <a href="/?institute=4" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/0NKvDJrP/1025790-nptel.webp" alt="black floral wrap midi skirt" class="showcase-img"
+                        width="70">
+                    </a>
+                  
+                    <div class="showcase-content">
+                  
+                      <a href="/?institute=4">
+                        <h4 class="showcase-title">NPTEL Courses</h4>
+                      </a>
+                
+                    </div>
+                  
+                  </div>
+
+                  <div class="showcase">
+                  
+                    <a href="/?institute=13" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/yxtWXzBb/online759.jpg" alt="black floral wrap midi skirt" class="showcase-img"
+                        width="70">
+                    </a>
+                  
+                    <div class="showcase-content">
+                  
+                      <a href="/?institute=13">
+                        <h4 class="showcase-title">Others</h4>
+                      </a>
+                
+                    </div>
+                  
+                  </div>
+
+                </div>
+
+                <div class="showcase-container">
+                
+                  <div class="showcase">
+                
+                    <a href="/?institute=10" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/v8hg948q/Goldman-Sachs-Logo.png" alt="men yarn fleece full-zip jacket" class="showcase-img"
+                        width="70">
+                    </a>
+                
+                    <div class="showcase-content">
+                
+                      <a href="/?institute=10">
+                        <h4 class="showcase-title">Goldman Sachs</h4>
+                      </a>
+                
+                    </div>
+                
+                  </div>
+                
+                  <div class="showcase">
+                
+                    <a href="/?institute=12" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/xC4rDGyp/qcsvanucqllkdk2wjgq9.png" alt="mens winter leathers jackets" class="showcase-img"
+                        width="70">
+                    </a>
+                
+                    <div class="showcase-content">
+                
+                      <a href="/?institute=12">
+                        <h4 class="showcase-title">LearnQuest</h4>
+                      </a>
+
+                    </div>
+                
+                  </div>
+                
+                  <div class="showcase">
+                
+                    <a href="/?institute=5" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/wTDr0YPG/Microsoft-Logo.png" alt="mens winter leathers jackets" class="showcase-img"
+                        width="70">
+                    </a>
+                
+                    <div class="showcase-content">
+                
+                      <a href="/?institute=5">
+                        <h4 class="showcase-title">Microsoft</h4>
+                      </a>
+                
+                    </div>
+                
+                  </div>
+                
+                  <div class="showcase">
+                
+                    <a href="/?institute=11" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/Wbt3kSHz/IEEE-Logo.jpg" alt="better basics french terry sweatshorts" class="showcase-img"
+                        width="70">
+                    </a>
+                
+                    <div class="showcase-content">
+                
+                      <a href="/?institute=11">
+                        <h4 class="showcase-title">IEEE</h4>
+                      </a>
+                
+                    </div>
+                
+                  </div>
+                
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="product-showcase">
+            
+              <h2 class="title">Universities</h2>
+            
+              <div class="showcase-wrapper  has-scrollbar">
+            
+                <div class="showcase-container">
+            
+                  <div class="showcase">
+            
+                    <a href="/?university=3" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/YChh9RKS/Harvard-Logo.png" alt="running & trekking shoes - white" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=3">
+                        <h4 class="showcase-title">Harvard University</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+            
+                  <div class="showcase">
+            
+                    <a href="/?university=4" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/bvfph9qW/block-s-right.png" alt="trekking & running shoes - black" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=4">
+                        <h4 class="showcase-title">Stanford University</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+            
+                  <div class="showcase">
+            
+                    <a href="/?university=5" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/Y2vrQ9DX/IIT-kharagpur-Recruitment.png" alt="womens party wear shoes" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=5">
+                        <h4 class="showcase-title">IIT Kharagpur</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+            
+                  <div class="showcase">
+            
+                    <a href="/?university=6" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/QMzPDXgt/41-VZYP49-Li-L-AC-SL1024.jpg" alt="sports claw women's shoes" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=6">
+                        <h4 class="showcase-title">MIT</h4>
+                      </a>
+            
+                   
+                    </div>
+            
+                  </div>
+
+                  <div class="showcase">
+            
+                    <a href="/?university=16" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/FR3mY5tq/IIT-Madras-01-900x0.png" alt="running & trekking shoes - white" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=16">
+                        <h4 class="showcase-title">IIT Madras</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+
+                  <div class="showcase">
+            
+                    <a href="/?university=3" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/gkTMknHY/university-of-california-irvine-uci-vector-logo-small.png" alt="running & trekking shoes - white" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=3">
+                        <h4 class="showcase-title">UOC, Irivine</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+                  <div class="showcase">
+            
+                    <a href="/?university=17" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/6pDNCg1V/University-of-Princeton-Logo.png" alt="running & trekking shoes - white" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=17">
+                        <h4 class="showcase-title">Princeton University</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+
+                  <div class="showcase">
+            
+                    <a href="/?university=19" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/RVHntcPV/Georgia-Tech-RGB.png" alt="running & trekking shoes - white" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=19">
+                        <h4 class="showcase-title">Georgia Institute of Technology</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+            
+                </div>
+            
+                <div class="showcase-container">
+            
+                  <div class="showcase">
+            
+                    <a href="/?university=7" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/2yG7zGpw/University-of-Michigan-Symbol.jpg" alt="air tekking shoes - white" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=7">
+                        <h4 class="showcase-title">University of Michigan</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+            
+                  <div class="showcase">
+            
+                    <a href="/?university=8" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/hjpXv5jf/1525441760-ABRX2z-P2y-ds-DB4-Csm2m-Jii-Kw-G6-Pq29.gif" alt="Boot With Suede Detail" class="showcase-img" width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=8">
+                        <h4 class="showcase-title">IIT Bombay</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+            
+                  <div class="showcase">
+            
+                    <a href="/?university=9" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/1t5zkrHP/Yale-University-700x233.png" alt="men's leather formal wear shoes" class="showcase-img"
+                        width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=9">
+                        <h4 class="showcase-title">Yale University</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+            
+                  <div class="showcase">
+            
+                    <a href="/?university=12" class="showcase-img-box">
+                      <img src="https://i.postimg.cc/mgyzKksY/Duke-University-symbol.jpg" alt="casual men's brown shoes" class="showcase-img" width="70">
+                    </a>
+            
+                    <div class="showcase-content">
+            
+                      <a href="/?university=12">
+                        <h4 class="showcase-title">Duke University</h4>
+                      </a>
+            
+                    </div>
+            
+                  </div>
+            
+                </div>
+            
+              </div>
+            
+            </div>
+
+  </main>
+</div>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
+{% endblock %}
